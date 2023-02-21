@@ -1,5 +1,5 @@
-export function assert(expr, failDescription) {
+export function assert (expr, failDescription) {
   if (!expr) {
-    throw new Error(`[@sxc/react-native-navigation] ${failDescription}`);
+    throw new Error(`[@systech/react-native-navigation] ${failDescription}`)
   }
 }

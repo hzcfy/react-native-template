@@ -1,4 +1,4 @@
-import Loading from './loading';
+import Loading from './loading'
+import Toast from './toast'
 
-export { Loading };
-
+export { Loading, Toast }

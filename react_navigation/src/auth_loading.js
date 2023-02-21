@@ -1,44 +1,43 @@
-import React from 'react';
+import React from 'react'
 import {
   ActivityIndicator,
-  View
-} from 'react-native';
-import SStyle from '@sxc/style';
+  View,
+  StyleSheet
+} from 'react-native'
 
-import connect from './redux/connect';
-import { Component } from './lib';
+import connect from './redux/connect'
+import { Component } from './lib'
 
-
-const s = SStyle.create({
+const s = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff'
   }
-});
+})
 
 class AuthLoadingScreen extends Component {
-  componentDidMount() {
+  componentDidMount () {
     if (this.props.configReducer.forceLogin) {
       if (!this.props.userReducer.isLoggedIn) {
-        this.navigator().navigate('Auth');
-        return;
+        this.navigator().navigate('Auth')
+        return
       }
     }
-    this.navigator().navigate('App');
+    this.navigator().navigate('App')
   }
 
-  render() {
+  render () {
     return (
       <View style={s.container}>
         <ActivityIndicator />
       </View>
-    );
+    )
   }
 }
 
 const setState = state => ({
   userReducer: state.userDoorReducer,
   configReducer: state.configReducer
-});
+})
 
-export default connect(setState)(AuthLoadingScreen);
+export default connect(setState)(AuthLoadingScreen)

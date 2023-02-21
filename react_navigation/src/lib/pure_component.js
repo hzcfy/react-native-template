@@ -1,25 +1,24 @@
 /*
- * @Author: kkt
- * @Date: 2016-01-25 11:54:15
- * @Last Modified by: Liufang
- * @Last Modified time: 2019-05-28 16:43:23
- * @Description Base Component 页面基础类，继承于React.Component 添加额外功能
- * @flow
- */
+* @Author: foryoung.cheng
+* @Description:   Base Component 页面基础类，继承于React.Component 添加额外功能
+* @Date: 2023-02-21 15:57:56
+ * @Last Modified by: foryoung.cheng
+ * @Last Modified time: 2023-02-21 15:58:41
+* @License: GNU General Public License（GPL)
+* @Copyright: ©2015-2019 www.songxiaocai.com 宋小菜 All Rights Reserved.
+*/
 
-import React from 'react';
-import PropTypes from 'prop-types';
-import { actionTypes, NavigationActions } from '../config';
-import Toast from './toast';
-import { loadingAction } from '../door/redux/actions/index';
-import { gwapi } from '../door/sdk';
-import NavigationStore from '../redux/store';
-import { getCurrentState } from '../utils';
-
+import React from 'react'
+import PropTypes from 'prop-types'
+import { actionTypes, NavigationActions } from '../config'
+import Toast from './toast'
+import { loadingAction } from '../redux/actions/index'
+import NavigationStore from '../redux/store'
+import { getCurrentState } from '../utils'
 
 // __EXIST_FLAG作为 SComponent私有对象，外部不可读写
-const __EXIST_FLAG = '__EXIST_FLAG';
-const __HAS_ROUTE = '__HAS_ROUTE';
+const __EXIST_FLAG = '__EXIST_FLAG'
+const __HAS_ROUTE = '__HAS_ROUTE'
 // 全局缓存数据
 
 class SComponent extends React.PureComponent {
@@ -27,10 +26,10 @@ class SComponent extends React.PureComponent {
     navigation: PropTypes.object
   }
 
-  constructor(props) {
-    super(props);
+  constructor (props) {
+    super(props)
     // 组件生命周期标识（私有！子类不可读写）（初始化为true,销毁时置为false）
-    this[__EXIST_FLAG] = true;
+    this[__EXIST_FLAG] = true
     this.debounce = true
     /**
      * 判断组件是否存在路由
@@ -41,19 +40,19 @@ class SComponent extends React.PureComponent {
      */
     this[__HAS_ROUTE] = () => {
       if (!this.props.navigation) {
-        console.error('this.props.navigation is undefined');
+        console.error('this.props.navigation is undefined')
       }
-    };
+    }
 
     // 保存路由信息(如果在路由中传递变量、方法，则都会保存在这个map中, 通过setRouteData和getRouteData)进行修改
-    this.__ROUTE_DATA = {};
+    this.__ROUTE_DATA = {}
   }
 
-  componentWillUnmount() {
+  componentWillUnmount () {
     if (this.timer) {
-      clearTimeout(this.timer);
+      clearTimeout(this.timer)
     }
-    this.release();
+    this.release()
   }
 
   /**
@@ -67,20 +66,20 @@ class SComponent extends React.PureComponent {
    * @author kkt
    * @date   2016-01-25
    */
-  getRef(refName) {
+  getRef (refName) {
     /**
      * @param  funcName     ref需要执行的方法名，如 this.refs.scrollview.scrollResponderScrollTo中的scrollResponderScrollTo
      * @return function
      */
     return (funcName) => {
-      const _this = this;
+      const _this = this
       return (...args) => {
         if (_this[__EXIST_FLAG]) {
-          return _this.refs[refName][funcName](...args);
+          return _this.refs[refName][funcName](...args)
         }
-        return null;
-      };
-    };
+        return null
+      }
+    }
   }
 
   /**
@@ -90,17 +89,17 @@ class SComponent extends React.PureComponent {
  * @author kkt
  * @date   2016-01-25
  */
-  getRouteData(routeDataKeyName) {
-    this[__HAS_ROUTE]();
+  getRouteData (routeDataKeyName) {
+    this[__HAS_ROUTE]()
     if (this.props.navigation.state.params) {
       if (routeDataKeyName) {
-        return this.props.navigation.state.params[routeDataKeyName];
+        return this.props.navigation.state.params[routeDataKeyName]
       }
-      return this.props.navigation.state.params;
+      return this.props.navigation.state.params
     } else if (routeDataKeyName) {
-      return null;
+      return null
     }
-    return {};
+    return {}
   }
 
   /**
@@ -110,14 +109,14 @@ class SComponent extends React.PureComponent {
    * @returns
    * @memberof SComponent
    */
-  getScreenProps(propsName) {
+  getScreenProps (propsName) {
     if (this.props.screenProps) {
       if (propsName) {
-        return this.props.screenProps[propsName];
+        return this.props.screenProps[propsName]
       }
-      return this.props.screenProps;
+      return this.props.screenProps
     }
-    return {};
+    return {}
   }
 
   /**
@@ -128,8 +127,8 @@ class SComponent extends React.PureComponent {
    * @author kkt
    * @date   2016-01-25
    */
-  release() {
-    this[__EXIST_FLAG] = false;
+  release () {
+    this[__EXIST_FLAG] = false
   }
 
   /**
@@ -139,34 +138,10 @@ class SComponent extends React.PureComponent {
    * @author kkt
    * @date   2016-01-25
    */
-  changeState(...args) {
+  changeState (...args) {
     if (this[__EXIST_FLAG]) {
-      this.setState(...args);
+      this.setState(...args)
     }
-  }
-
-  /**
-   * 发送请求
-   * @method  request
-   * @param   {apiName, data} config [description]
-   * @return  {Promise} [description]
-   * @author JimmyDaddy
-   * @date    2017-05-18T11:58:24+080
-   * @version [version]
-   */
-  async request(config) {
-    const { apiName, data, errorHandler } = config;
-    if (!apiName) {
-      console.warn('You should set an apiName');
-      return {};
-    }
-    const { store } = NavigationStore.getNavigationStore();
-    if (store) {
-      const configData = store.getState();
-      return gwapi(apiName, data, { ...configData, errorHandler }, store.dispatch);
-    }
-    console.warn('You should wait the NavigationStore init complete');
-    return {};
   }
 
   /**
@@ -178,20 +153,20 @@ class SComponent extends React.PureComponent {
    * @version [version]
    */
   navigator = () => {
-    this[__HAS_ROUTE]();
+    this[__HAS_ROUTE]()
     return {
       ...this.props.navigation,
       pop: (number) => {
         if (this.debounce) {
           this.debounce = false
           if (number && typeof number === 'number') {
-            this.props.navigation.pop(number);
+            this.props.navigation.pop(number)
           } else {
-            this.props.navigation.pop();
+            this.props.navigation.pop()
           }
           setTimeout(() => {
-            this.debounce = true;
-          }, 200);
+            this.debounce = true
+          }, 200)
         }
       },
       /**
@@ -209,8 +184,8 @@ class SComponent extends React.PureComponent {
           this.debounce = false
           this.props.navigation.navigate(routeName, params, actions)
           setTimeout(() => {
-            this.debounce = true;
-          }, 200);
+            this.debounce = true
+          }, 200)
         }
       },
       /**
@@ -229,8 +204,8 @@ class SComponent extends React.PureComponent {
           this.debounce = false
           this.props.navigation.navigate(routeName, params, actions)
           setTimeout(() => {
-            this.debounce = true;
-          }, 200);
+            this.debounce = true
+          }, 200)
         }
       },
       /**
@@ -247,13 +222,13 @@ class SComponent extends React.PureComponent {
         if (this.debounce) {
           this.debounce = false
           if (routeName && typeof routeName === 'string') {
-            this.props.navigation.goBack({ routeName, params });
+            this.props.navigation.goBack({ routeName, params })
           } else {
-            this.props.navigation.goBack();
+            this.props.navigation.goBack()
           }
           setTimeout(() => {
-            this.debounce = true;
-          }, 200);
+            this.debounce = true
+          }, 200)
         }
       },
       /**
@@ -268,12 +243,12 @@ class SComponent extends React.PureComponent {
        * @version [version]
        */
       pushToTab: (tab, tabName, params) => {
-        this.props.navigation.navigate(tab);
+        this.props.navigation.navigate(tab)
         if (tabName) {
           const ti = setTimeout(() => {
-            clearTimeout(ti);
-            this.props.navigation.navigate(tabName, params);
-          }, 10);
+            clearTimeout(ti)
+            this.props.navigation.navigate(tabName, params)
+          }, 10)
         }
       },
       /**
@@ -311,8 +286,8 @@ class SComponent extends React.PureComponent {
           type: actionTypes.REPLACE,
           routeName,
           params
-        };
-        this.props.navigation.dispatch(replaceAction);
+        }
+        this.props.navigation.dispatch(replaceAction)
       },
       /**
        * 重置整个路由栈，将其置空，并设定routeName为第一个场景
@@ -333,8 +308,8 @@ class SComponent extends React.PureComponent {
               action: NavigationActions.navigate({ routeName, params })
             })
           ]
-        });
-        this.props.navigation.dispatch(resetToAction);
+        })
+        this.props.navigation.dispatch(resetToAction)
       },
       /**
        * 替换当前场景的前一个场景
@@ -351,8 +326,8 @@ class SComponent extends React.PureComponent {
           type: actionTypes.NAVIGATION_REPLACE_PREVIOUS,
           routeName,
           params
-        };
-        this.props.navigation.dispatch(replacePreviousAction);
+        }
+        this.props.navigation.dispatch(replacePreviousAction)
       },
       /**
        * 回到之前的场景，但会保留当前场景，可使用jumpForward跳转回来
@@ -365,8 +340,8 @@ class SComponent extends React.PureComponent {
       jumpBack: () => {
         const jumpBackAction = {
           type: actionTypes.NAVIGATION_JUMP_BACK
-        };
-        this.props.navigation.dispatch(jumpBackAction);
+        }
+        this.props.navigation.dispatch(jumpBackAction)
       },
       /**
        * 回到后一个场景，但会保留当前场景，可使用jumpBack跳转回来
@@ -379,10 +354,10 @@ class SComponent extends React.PureComponent {
       jumpForward: () => {
         const jumpForwardAction = {
           type: actionTypes.NAVIGATION_JUMP_FORWARD
-        };
-        this.props.navigation.dispatch(jumpForwardAction);
+        }
+        this.props.navigation.dispatch(jumpForwardAction)
       }
-    };
+    }
   }
 
   /**
@@ -394,37 +369,37 @@ class SComponent extends React.PureComponent {
    * @version [version]
    */
   resetRouteData = (routeData) => {
-    this[__HAS_ROUTE]();
-    this.props.navigation.setParams(routeData);
+    this[__HAS_ROUTE]()
+    this.props.navigation.setParams(routeData)
   }
 
   showToast = (msg, position, durations) => {
-    Toast.show(msg, position, durations);
+    Toast.show(msg, position, durations)
   }
 
-  get Toast() {
-    return Toast;
+  get Toast () {
+    return Toast
   }
 
   showLoading = (options = {}) => {
     if (this.props.navigation) {
-      this.props.navigation.dispatch(loadingAction.showLoading(options.title || ''));
+      this.props.navigation.dispatch(loadingAction.showLoading(options.title || ''))
       if (options.duration) {
         const timer = setTimeout(() => {
-          this.hideLoading();
-          clearTimeout(timer);
-        }, options.duration);
+          this.hideLoading()
+          clearTimeout(timer)
+        }, options.duration)
       }
     } else {
-      console.warn('this.props.navigation is undefined');
+      console.warn('this.props.navigation is undefined')
     }
   }
 
   hideLoading = () => {
     if (this.props.navigation) {
-      this.props.navigation.dispatch(loadingAction.hideLoading());
+      this.props.navigation.dispatch(loadingAction.hideLoading())
     } else {
-      console.warn('this.props.navigation is undefined');
+      console.warn('this.props.navigation is undefined')
     }
   }
 
@@ -436,22 +411,22 @@ class SComponent extends React.PureComponent {
       containerStyle,
       modalContent,
       tapToDismiss
-    });
+    })
   }
 
   dismissModal = () => {
-    const { store } = NavigationStore.getNavigationStore();
-    const state = store.getState();
+    const { store } = NavigationStore.getNavigationStore()
+    const state = store.getState()
     if (state) {
-      const { sxcNavReducer } = state;
-      const currentRoute = getCurrentState(sxcNavReducer);
+      const { sxcNavReducer } = state
+      const currentRoute = getCurrentState(sxcNavReducer)
       if (currentRoute) {
-        const { routeName } = currentRoute;
+        const { routeName } = currentRoute
         if (routeName === 'SxcNavigationModal') {
-          store.dispatch(NavigationActions.back());
+          store.dispatch(NavigationActions.back())
         }
       } else {
-        console.warn('current route is not a modal');
+        console.warn('current route is not a modal')
       }
     }
   }
@@ -459,6 +434,6 @@ class SComponent extends React.PureComponent {
 
 SComponent.defaultProps = {
   navigation: null
-};
+}
 
-export default SComponent;
+export default SComponent

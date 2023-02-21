@@ -1,20 +1,19 @@
 /*
- * @Author: JimmyDaddy
- * @Date: 2018-04-23 11:32:15
- * @Last Modified by:   Liufang
- * @Last Modified Date:   2019-05-28 4:34
- * @Description
- */
-import { DeviceUtils } from '@sxc/colrn';
-import ReactNavigation from 'react-navigation';
-import SxcNavigation from './entry';
-import * as DoorExport from './door_export';
-import { Component, PureComponent } from './lib';
-import NavgationStore from './redux/store';
-import { NavigatorTypes, environment } from './constants';
-import { NavigationActions, StackActions } from './config';
-import Provider from './redux/provider';
-import connect from './redux/connect';
+* @Author: foryoung.cheng
+* @Description:
+* @Date: 2023-02-21 14:55:40
+ * @Last Modified by: foryoung.cheng
+ * @Last Modified time: 2023-02-21 17:21:16
+* @License: GNU General Public License（GPL)
+* @Copyright: ©2015-2019 www.songxiaocai.com 宋小菜 All Rights Reserved.
+*/
+import SystechNavigation from './entry'
+import { Component, PureComponent } from './lib'
+import NavgationStore from './redux/store'
+import { NavigatorTypes, environment } from './constants'
+import { NavigationActions, StackActions } from './config'
+import Provider from './redux/provider'
+import connect from './redux/connect'
 
 /**
  * @description 重置当前 App 下所有路由到某个页面，该页面称为第一个页面，不会影响到 登录 和 modal
@@ -24,7 +23,7 @@ import connect from './redux/connect';
  * @param {action} action
  */
 const showPage = (routeName, params, action) => {
-  const { store } = NavgationStore.getNavigationStore();
+  const { store } = NavgationStore.getNavigationStore()
   if (store) {
     const navigateAction = StackActions.reset({
       index: 0,
@@ -46,23 +45,20 @@ const showPage = (routeName, params, action) => {
           })
         })
       ]
-    });
-    store.dispatch(navigateAction);
+    })
+    store.dispatch(navigateAction)
   }
-};
+}
 
 module.exports = {
-  ...DoorExport,
   Component,
-  DeviceUtils,
   NavgationStore,
   NavigationActions,
   NavigatorTypes,
   Provider,
   PureComponent,
-  SxcNavigation,
+  SystechNavigation,
   connect,
   environment,
-  showPage,
-  ...ReactNavigation
-};
+  showPage
+}

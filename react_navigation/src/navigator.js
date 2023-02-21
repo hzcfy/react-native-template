@@ -1,34 +1,36 @@
 /*
- * @Author: JimmyDaddy
- * @Date: 2018-04-23 11:32:15
- * @Last Modified by:   Liufang
- * @Last Modified Date:   2019-05-28 4:34
- * @Description
- */
+* @Author: foryoung.cheng
+* @Description:
+* @Date: 2023-02-21 14:55:28
+ * @Last Modified by: foryoung.cheng
+ * @Last Modified time: 2023-02-21 17:25:10
+* @License: GNU General Public License（GPL)
+* @Copyright: ©2015-2019 www.songxiaocai.com 宋小菜 All Rights Reserved.
+*/
 
-import { createSwitchNavigator, createStackNavigator, createBottomTabNavigator, createDrawerNavigator } from 'react-navigation';
-import DoorNavigator from './door_navigator';
-import AuthLoadingScreen from './auth_loading';
-import { NavigatorTypes } from './constants';
-import ModalContainer from './modal_container';
-import { forVertical } from './utils';
+import { createSwitchNavigator, createStackNavigator, createBottomTabNavigator, createDrawerNavigator } from 'react-navigation'
+// import DoorNavigator from './door_navigator'
+import AuthLoadingScreen from './auth_loading'
+import { NavigatorTypes } from './constants'
+import ModalContainer from './modal_container'
+import { forVertical } from './utils'
 
 export default (routeConfigMap, navigatorConfig) => {
-  const { type, config } = navigatorConfig;
-  let NavigatorFunc = null;
+  const { type, config } = navigatorConfig
+  let NavigatorFunc = null
   switch (type) {
-  case NavigatorTypes.STACK:
-    NavigatorFunc = createStackNavigator;
-    break;
-  case NavigatorTypes.TAB:
-    NavigatorFunc = createBottomTabNavigator;
-    break;
-  case NavigatorTypes.DRAWER:
-    NavigatorFunc = createDrawerNavigator;
-    break;
-  default:
-    NavigatorFunc = createStackNavigator;
-    break;
+    case NavigatorTypes.STACK:
+      NavigatorFunc = createStackNavigator
+      break
+    case NavigatorTypes.TAB:
+      NavigatorFunc = createBottomTabNavigator
+      break
+    case NavigatorTypes.DRAWER:
+      NavigatorFunc = createDrawerNavigator
+      break
+    default:
+      NavigatorFunc = createStackNavigator
+      break
   }
   return createStackNavigator({
     AppMain: {
@@ -37,17 +39,17 @@ export default (routeConfigMap, navigatorConfig) => {
           key: 'AuthLoading',
           screen: AuthLoadingScreen
         },
-        Auth: {
-          key: 'Auth',
-          screen: DoorNavigator
-        },
+        // Auth: {
+        //   key: 'Auth',
+        //   screen: DoorNavigator
+        // },
         App: {
           key: 'App',
           screen: NavigatorFunc(routeConfigMap, config)
         }
       })
     },
-    SxcNavigationModal: {
+    SystechNavigationModal: {
       screen: ModalContainer
     }
   }, {
@@ -59,6 +61,5 @@ export default (routeConfigMap, navigatorConfig) => {
     },
     transparentCard: true,
     transitionConfig: () => ({ screenInterpolator: forVertical })
-  });
-};
-
+  })
+}

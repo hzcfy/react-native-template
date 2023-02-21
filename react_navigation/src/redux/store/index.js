@@ -1,8 +1,7 @@
 
-import Navigator from '../../navigator';
-import configureStore from './create_store';
-import { NavReducer } from '../../lib/index';
-
+import Navigator from '../../navigator'
+import configureStore from './create_store'
+import { NavReducer } from '../../lib/index'
 
 class NavigationStore {
   Navigator;
@@ -11,7 +10,7 @@ class NavigationStore {
   persistor;
   reducer;
 
-  create(
+  create (
     {
       routeConfigMap,
       navigatorConfig,
@@ -22,30 +21,30 @@ class NavigationStore {
     navMiddleware,
     onLoadingComplete
   ) {
-    this.Navigator = Navigator(routeConfigMap, navigatorConfig);
-    this.router = this.Navigator.router;
-    this.reducer = NavReducer(this.Navigator);
+    this.Navigator = Navigator(routeConfigMap, navigatorConfig)
+    this.router = this.Navigator.router
+    this.reducer = NavReducer(this.Navigator)
     const { store, persistor } = configureStore({
       reducers: {
-        sxcNavReducer: this.reducer
+        systechNavReducer: this.reducer
       },
       persistKeyPrefix,
       persistNavReducer,
       storage
-    }, navMiddleware, onLoadingComplete);
+    }, navMiddleware, onLoadingComplete)
 
-    this.store = store;
-    this.persistor = persistor;
-    NavigationStore.Instance = this;
-    return this;
+    this.store = store
+    this.persistor = persistor
+    NavigationStore.Instance = this
+    return this
   }
 
-  static getNavigationStore() {
+  static getNavigationStore () {
     if (!NavigationStore.Instance) {
-      console.warn('You should wait the NavigationStore init complete');
+      console.warn('You should wait the NavigationStore init complete')
     }
-    return NavigationStore.Instance;
+    return NavigationStore.Instance
   }
 }
 
-export default NavigationStore;
+export default NavigationStore

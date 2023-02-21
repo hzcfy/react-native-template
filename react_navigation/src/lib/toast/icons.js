@@ -3,4 +3,4 @@ module.exports = {
   SUCCESS: require('./assets/success.png'),
   WARN: require('./assets/warn.png'),
   COMPLETE: require('./assets/complete.png')
-};
+}

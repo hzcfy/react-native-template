@@ -1,13 +1,5 @@
-/*
- * @Author: JimmyDaddy
- * @Date: 2017-08-21 17:12:19
- * @Last Modified by: Liufang
- * @Last Modified time: 2019-05-28 4:34
- * @Decscription action types here
- */
 
-
-import { NavigationActions, StackActions } from 'react-navigation';
+import { NavigationActions, StackActions } from 'react-navigation'
 
 const myNavigationAction = {
   ...NavigationActions,
@@ -20,7 +12,8 @@ const myNavigationAction = {
   NAVIGATION_REPLACE_PREVIOUS: 'Navigation/REPLACE_PREVIOUS',
   NAVIGATION_JUMP_BACK: 'Navigation/JUMP_BACK',
   NAVIGATION_JUMP_FORWARD: 'Navigation/JUMP_FORWARD'
-};
+}
+
 export default {
   /**
    * global loading
@@ -29,6 +22,6 @@ export default {
   HIDE_LOADING: 'hide loading',
   ...myNavigationAction,
   ...StackActions
-};
+}
 
-export { myNavigationAction as NavigationActions, StackActions };
+export { myNavigationAction as NavigationActions, StackActions }

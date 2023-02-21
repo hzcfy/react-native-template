@@ -1,8 +1,16 @@
-import React from 'react';
-import { View, Text, ActivityIndicator } from 'react-native';
-import SStyle from '@sxc/style';
+/*
+* @Author: foryoung.cheng
+* @Description:   全局 Loading
+* @Date: 2023-02-21 15:12:52
+* @Last Modified by:   foryoung.cheng
+* @Last Modified time: 2023-02-21 15:12:52
+* @License: GNU General Public License（GPL)
+* @Copyright: ©2015-2019 www.songxiaocai.com 宋小菜 All Rights Reserved.
+*/
+import React from 'react'
+import { View, Text, ActivityIndicator, StyleSheet } from 'react-native'
 
-const s = SStyle.create({
+const s = StyleSheet.create({
   container: {
     flex: 1,
     position: 'absolute',
@@ -33,8 +41,7 @@ const s = SStyle.create({
     marginTop: 5,
     color: 'white'
   }
-});
-
+})
 
 const Loading = () => (
   <View style={s.container}>
@@ -48,7 +55,6 @@ const Loading = () => (
       <Text style={s.text}>loading ... </Text>
     </View>
   </View>
-);
+)
 
-export default Loading;
-
+export default Loading

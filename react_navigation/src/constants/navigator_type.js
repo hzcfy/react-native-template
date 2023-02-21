@@ -3,7 +3,6 @@ const NavigatorTypes = {
   TAB: 'tab',
   DRAWER: 'drawer',
   getTypes: () => ['stack', 'tab', 'drawer']
-};
+}
 
-export default NavigatorTypes;
-
+export default NavigatorTypes
