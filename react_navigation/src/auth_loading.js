@@ -17,12 +17,12 @@ const s = StyleSheet.create({
 
 class AuthLoadingScreen extends Component {
   componentDidMount () {
-    if (this.props.configReducer.forceLogin) {
-      if (!this.props.userReducer.isLoggedIn) {
-        this.navigator().navigate('Auth')
-        return
-      }
-    }
+    // if (this.props.configReducer.forceLogin) {
+    //   if (!this.props.userReducer.isLoggedIn) {
+    //     this.navigator().navigate('Auth')
+    //     return
+    //   }
+    // }
     this.navigator().navigate('App')
   }
 
@@ -36,8 +36,7 @@ class AuthLoadingScreen extends Component {
 }
 
 const setState = state => ({
-  userReducer: state.userDoorReducer,
-  configReducer: state.configReducer
+  userReducer: state.userDoorReducer
 })
 
 export default connect(setState)(AuthLoadingScreen)
