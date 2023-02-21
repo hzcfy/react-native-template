@@ -6,7 +6,7 @@ import { Component } from '@systech/react-native-navigation'
 export default class Entry extends Component {
   _onPress =() => {
     console.log('this', this)
-    this.navigator().push('Test', {})
+    this.navigator().pop()
   }
   render () {
     return (
@@ -15,7 +15,7 @@ export default class Entry extends Component {
         <TouchableOpacity
           onPress={this._onPress}
         >
-          <Text>Home</Text>
+          <Text>Test</Text>
         </TouchableOpacity>
       </View>
     )

@@ -1,12 +1,12 @@
 /*
- * @Author: kkt
- * @Date: 2016-01-25 11:54:15
+* @Author: foryoung.cheng
+* @Description: Base Component
+* @Date: 2023-02-21 18:30:14
  * @Last Modified by: foryoung.cheng
- * @Last Modified time: 2023-02-21 15:57:05
- * @Description Base Component 页面基础类，继承于React.Component 添加额外功能
- * @flow
- */
-
+ * @Last Modified time: 2023-02-21 18:30:35
+* @License: GNU General Public License（GPL)
+* @Copyright: ©2015-2019 www.songxiaocai.com 宋小菜 All Rights Reserved.
+*/
 import React from 'react'
 import PropTypes from 'prop-types'
 import { actionTypes, NavigationActions } from '../config'

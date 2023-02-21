@@ -1,7 +1,7 @@
 
 import Navigator from '../../navigator'
 import configureStore from './create_store'
-import { NavReducer } from '../../lib/index'
+import NavReducer from '../../lib/nav_reducer'
 
 class NavigationStore {
   Navigator;

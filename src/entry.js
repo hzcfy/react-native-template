@@ -7,7 +7,7 @@
 
 import React, {Component} from 'react'
 import { View, Text } from 'react-native'
-import { SystechNavigation, NavigatorTypes, Component as SComponent } from '../react_navigation'
+import { SystechNavigation, NavigatorTypes } from '@systech/react-native-navigation'
 import routes from './views/routes'
 export default class Entry extends Component {
   _onLoadingComplete = () => {
@@ -17,30 +17,12 @@ export default class Entry extends Component {
     console.log('_onLogin')
   }
   render () {
-    console.log('this000')
-    console.log('this222', SystechNavigation)
-    // return (
-    //   <View style={{paddingTop: 100}} >
-    //     <Text>1111</Text>
-    //   </View>
-    // )
     return (
       <SystechNavigation
         persistLoading={<View />}
         onLoadingComplete={this._onLoadingComplete}
         routeConfigMap={routes}
-        config={{
-          appKey: '',
-          bizCode: '',
-          jsVersion: '1.0',
-          devHost: 'https://gateway.songxiaocai.org', // 121.41.31.174
-          testHost: 'https://gateway.songxiaocai.net',
-          theme: 'green',
-          forceLogin: false, // 是否需要登录
-          testUsers: {},
-          loadingColor: '#fff',
-          onLogin: this._onLogin
-        }}
+        config={{}}
         navigatorConfig={{
           type: NavigatorTypes.STACK,
           config: {
@@ -50,7 +32,7 @@ export default class Entry extends Component {
             }
           }
         }}
-        persistKeyPrefix={''}
+        // persistKeyPrefix={''}
       />
     )
   }

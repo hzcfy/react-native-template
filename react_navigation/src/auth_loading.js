@@ -6,7 +6,7 @@ import {
 } from 'react-native'
 
 import connect from './redux/connect'
-import { Component } from './lib'
+import Component from './lib/component'
 
 const s = StyleSheet.create({
   container: {
