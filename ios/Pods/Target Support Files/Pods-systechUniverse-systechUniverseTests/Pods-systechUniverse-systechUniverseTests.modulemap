@@ -1,0 +1,6 @@
+module Pods_systechUniverse_systechUniverseTests {
+  umbrella header "Pods-systechUniverse-systechUniverseTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

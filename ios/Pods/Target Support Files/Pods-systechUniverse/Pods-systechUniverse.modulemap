@@ -1,0 +1,6 @@
+module Pods_systechUniverse {
+  umbrella header "Pods-systechUniverse-umbrella.h"
+
+  export *
+  module * { export * }
+}
