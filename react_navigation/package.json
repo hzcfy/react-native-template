@@ -23,7 +23,7 @@
     "qs": "*"
   },
   "dependencies": {
-    "react-navigation": "3.11.0",
+    "react-navigation": "4.4.4",
     "react-navigation-redux-helpers": "3.0.2",
     "redux-logger": "3.0.6",
     "redux-persist": "5.9.1",

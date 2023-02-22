@@ -6,7 +6,7 @@ import { Component } from '@systech/react-native-navigation'
 export default class Entry extends Component {
   _onPress =() => {
     console.log('this', this)
-    this.navigator().push('Test', {})
+    this.navigator().push('Test', {name: '111'})
   }
   render () {
     return (
