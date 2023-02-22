@@ -1,7 +1,7 @@
 
 import React from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
-import { Component } from '@systech/react-native-navigation'
+import { Component } from '@cforyoung/react-native-navigation'
 
 export default class Entry extends Component {
   _onPress =() => {

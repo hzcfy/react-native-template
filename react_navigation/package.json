@@ -1,20 +1,15 @@
 {
-  "name": "@systech/react-native-navigation",
+  "name": "@cforyoung/react-native-navigation",
   "version": "0.0.1-beta1",
-  "description": "react-native-navigation for systech app",
+  "description": "react-native-navigation for rn app",
   "main": "src/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git@121.40.208.242:rn-components/react-native-navigation.git"
-  },
   "keywords": [
     "react-native",
-    "systech",
     "navigation"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "peerDependencies": {
     "react": "*",
     "react-native": "*",
@@ -28,10 +23,11 @@
     "redux-logger": "3.0.6",
     "redux-persist": "5.9.1",
     "redux-thunk": "2.2.0"
-  
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "author": "Foryoung",
-  "license": "ISC"
+  "license": "ISC",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
 }
