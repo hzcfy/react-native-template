@@ -9,12 +9,10 @@ import React, {Component} from 'react'
 import { View, Text } from 'react-native'
 import { SystechNavigation, NavigatorTypes } from '@cforyoung/react-native-navigation'
 import routes from './views/routes'
+import './global_config'
 export default class Entry extends Component {
   _onLoadingComplete = () => {
     console.log('onLoadingComplete')
-  }
-  _onLogin =() => {
-    console.log('_onLogin')
   }
   render () {
     return (
