@@ -11,13 +11,13 @@ const statusEnums = {
   EMPTY: 'empty'
 }
 const Page = (props = {}) => {
-  const {Loading} = props
+  const {Loading, pageStatus = statusEnums.SUCCESS} = props
   return (
     <View style={styles.container}>
       {!props.hideHeader && <Header {...props} />}
       <View style={{ flex: 1, width: '100%' }}>
-        {props.pageStatu === statusEnums.LOADING && <Loading />}
-        {props.pageStatu === statusEnums.SUCCESS && props.children}
+        {pageStatus === statusEnums.LOADING && <Loading />}
+        {pageStatus === statusEnums.SUCCESS && props.children}
       </View>
       {!props.hideFooter && <Footer backgroundColor={props.footerColor} />}
     </View>

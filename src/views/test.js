@@ -11,8 +11,8 @@ export default class Entry extends Component {
   }
   render () {
     return (
-      <Page>
-        <View style={{ flex: 1, backgroundColor: '#F5FCFF', paddingTop: 100 }} >
+      <Page title='士腾科技'>
+        <View style={{ }} >
 
           <TouchableOpacity
             onPress={this._onPress}
