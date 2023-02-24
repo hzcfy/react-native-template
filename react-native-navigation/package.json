@@ -1,0 +1,33 @@
+{
+  "name": "@cforyoung/react-native-navigation",
+  "version": "0.0.1-beta1",
+  "description": "react-native-navigation for rn app",
+  "main": "src/index.js",
+  "keywords": [
+    "react-native",
+    "navigation"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*",
+    "axios": "*",
+    "@react-native-async-storage/async-storage": "*",
+    "qs": "*"
+  },
+  "dependencies": {
+    "react-navigation": "4.4.4",
+    "react-navigation-redux-helpers": "3.0.2",
+    "redux-logger": "3.0.6",
+    "redux-persist": "5.9.1",
+    "redux-thunk": "2.2.0"
+  },
+  "devDependencies": {},
+  "author": "Foryoung",
+  "license": "ISC",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
