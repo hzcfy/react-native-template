@@ -3,7 +3,7 @@ import createLoadingPlugin from '@rematch/loading'
 import createRematchPersist from '@rematch/persist'
 import storage from '@react-native-async-storage/async-storage'
 
-import models from './models'
+import models from 'models'
 
 const loading = createLoadingPlugin({})
 const persist = createRematchPersist({

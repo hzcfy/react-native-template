@@ -2,6 +2,7 @@
 import HomeScreen from './home'
 import Test from './test'
 import { CardStyleInterpolators } from 'react-navigation-stack'
+
 export default {
   Home: {
     screen: HomeScreen
