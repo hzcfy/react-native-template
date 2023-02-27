@@ -3,9 +3,9 @@
 * @Description:   路由管理
 * @Date: 2023-02-21 15:19:35
  * @Last Modified by: foryoung.cheng
- * @Last Modified time: 2023-02-21 15:21:44
+ * @Last Modified time: 2023-02-27 09:18:24
 * @License: GNU General Public License（GPL)
-* @Copyright: ©2015-2019 www.songxiaocai.com 宋小菜 All Rights Reserved.
+* @Copyright: ©2003-2023 www.systech.com.cn 士腾 All Rights Reserved.  
 */
 
 import _ from 'lodash'

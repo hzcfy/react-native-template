@@ -1,3 +1,21 @@
 {
+  "compilerOptions": {
+    "allowJs": true,
+    "baseUrl": "./",
+    "jsx": "react",
+    "paths": {
+      "*": ["*/index.js", "*/index.jsx"],
+      "@/*": ["src/*"],
+      "@": ["src/index"],
+      "components/*": ["src/components/*"],
+      "components": ["src/components/index"],
+      "lib/*": ["src/lib/*"],
+      "lib": ["src/lib/index"],
+      "assets/*": ["src/assets/*"],
+      "assets": ["src/assets/index"],
+      "models": ["src/models/index"],
+      "services": ["src/services/index"],
+    }
+  },
   "extends": "@tsconfig/react-native/tsconfig.json"
 }

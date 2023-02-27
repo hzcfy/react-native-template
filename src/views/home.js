@@ -1,10 +1,23 @@
-
+/*
+* @Author: foryoung.cheng
+* @Description:
+* @Date: 2023-02-27 09:17:05
+ * @Last Modified by: foryoung.cheng
+ * @Last Modified time: 2023-02-27 09:21:43
+* @License: GNU General Public License（GPL)
+* @Copyright: ©2003-2023 www.systech.com.cn 士腾 All Rights Reserved.
+*/
 import React from 'react'
 import { View, TouchableOpacity } from 'react-native'
-import { Text, Colors, NumberInput, Toast, DateTimePicker, WheelPicker, Stepper, SegmentedControl, ActionBar } from 'react-native-ui-lib'
+import { Text, Colors, NumberInput, Toast, DateTimePicker, WheelPicker, SectionsWheelPicker, Stepper, SegmentedControl, ActionBar } from 'react-native-ui-lib'
 import { Component } from '@cforyoung/react-native-navigation'
 import { Svg } from 'assets'
 import { Page } from 'components'
+import _ from 'lodash'
+const DAYS = _.times(10, i => i)
+const HOURS = _.times(24, i => i)
+const MINUTES = _.times(60, i => i)
+
 export default class Entry extends Component {
   state={}
   _onPress =() => {
@@ -13,7 +26,7 @@ export default class Entry extends Component {
   }
   _jump =() => {
     console.log('this', this)
-    this.navigator().push('Test', {name: '111'})
+    this.navigator().push('SectionsWheelPickerDemo', {name: '111'})
   }
   _onDismiss =() => {
     this.setState({isVisible: false})
@@ -44,9 +57,8 @@ export default class Entry extends Component {
           <Svg.SvgDemo width={100}height={100} stopColor='#FEA267' />
           <Text margin-page h1 pink>Hello World</Text>
           <Stepper />
-
           <NumberInput fractionDigits={3} initialValue={1506} onChangeNumber={this._onDismiss} placeholder={'Price'} />
-          <ActionBar
+          {/* <ActionBar
             centered
             // keepRelative
             actions={[
@@ -56,9 +68,9 @@ export default class Entry extends Component {
               {label: 'Delete4', onPress: () => console.log('delete')},
               {label: 'Delete4', onPress: () => console.log('delete')}
             ]}
-          />
-          <DateTimePicker title={'Select time'} placeholder={'Placeholder'} mode={'date'} />
-          <SegmentedControl segments={[{label: '1st'}, {label: '2nd'}]} />
+          /> */}
+          {/* <DateTimePicker title={'Select time'} placeholder={'Placeholder'} mode={'date'} /> */}
+          {/* <SegmentedControl segments={[{label: '1st'}, {label: '2nd'}]} /> */}
           <WheelPicker
             items={[{label: 'Yes', value: 'yes'}, {label: 'No', value: 'no'}, {label: 'Maybe', value: 'maybe'}]}
             initialValue={'yes'}

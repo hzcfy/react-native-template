@@ -16,7 +16,7 @@ export default class Entry extends Component {
   }
   render () {
     return (
-      <SystechNavigation
+       <SystechNavigation
         persistLoading={<View />}
         onLoadingComplete={this._onLoadingComplete}
         routeConfigMap={routes}

@@ -3,9 +3,9 @@
 * @Description: Base Component
 * @Date: 2023-02-21 18:30:14
  * @Last Modified by: foryoung.cheng
- * @Last Modified time: 2023-02-21 18:30:35
+ * @Last Modified time: 2023-02-27 09:18:21
 * @License: GNU General Public License（GPL)
-* @Copyright: ©2015-2019 www.songxiaocai.com 宋小菜 All Rights Reserved.
+* @Copyright: ©2003-2023 www.systech.com.cn 士腾 All Rights Reserved.  
 */
 import React from 'react'
 import PropTypes from 'prop-types'

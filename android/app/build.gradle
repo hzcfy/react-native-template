@@ -111,6 +111,12 @@ android {
         }
     }
     signingConfigs {
+        release {
+            storeFile file('../keystores/systech')
+            storePassword 'systechApp20230213'
+            keyAlias 'systech'
+            keyPassword 'Systechapp20230213'
+        }
         debug {
             storeFile file('debug.keystore')
             storePassword 'android'

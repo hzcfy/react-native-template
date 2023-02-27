@@ -1,6 +1,7 @@
 // import Main from './main'
 import HomeScreen from './home'
 import Test from './test'
+import SectionsWheelPicker from './test/sectionsWheelPickerDemo'
 import { CardStyleInterpolators } from 'react-navigation-stack'
 
 export default {
@@ -12,6 +13,12 @@ export default {
   },
   Test: {
     screen: Test
+    // navigationOptions: {
+    //   cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS
+    // }
+  },
+  SectionsWheelPickerDemo: {
+    screen: SectionsWheelPicker
     // navigationOptions: {
     //   cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS
     // }
