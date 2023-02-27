@@ -297,6 +297,8 @@ PODS:
   - React-jsinspector (0.71.3)
   - React-logger (0.71.3):
     - glog
+  - react-native-ble-manager (8.8.0):
+    - React-Core
   - react-native-blur (4.3.0):
     - React-Core
   - react-native-netinfo (9.3.7):
@@ -485,6 +487,7 @@ DEPENDENCIES:
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
   - React-logger (from `../node_modules/react-native/ReactCommon/logger`)
+  - react-native-ble-manager (from `../node_modules/react-native-ble-manager`)
   - "react-native-blur (from `../node_modules/@react-native-community/blur`)"
   - "react-native-netinfo (from `../node_modules/@react-native-community/netinfo`)"
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
@@ -570,6 +573,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/jsinspector"
   React-logger:
     :path: "../node_modules/react-native/ReactCommon/logger"
+  react-native-ble-manager:
+    :path: "../node_modules/react-native-ble-manager"
   react-native-blur:
     :path: "../node_modules/@react-native-community/blur"
   react-native-netinfo:
@@ -658,6 +663,7 @@ SPEC CHECKSUMS:
   React-jsiexecutor: 891dad49e50d35fba97eeb43a35ae7470a8e10b2
   React-jsinspector: 9f7c9137605e72ca0343db4cea88006cb94856dd
   React-logger: 957e5dc96d9dbffc6e0f15e0ee4d2b42829ff207
+  react-native-ble-manager: f8add48474ad08a0bd3e46b2d1ebff5e00a628b7
   react-native-blur: 50c9feabacbc5f49b61337ebc32192c6be7ec3c3
   react-native-netinfo: 2517ad504b3d303e90d7a431b0fcaef76d207983
   react-native-safe-area-context: 39c2d8be3328df5d437ac1700f4f3a4f75716acc

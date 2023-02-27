@@ -7623,6 +7623,11 @@ react-lifecycles-compat@^3.0.0, react-lifecycles-compat@^3.0.4:
   resolved "https://registry.npmmirror.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
+react-native-ble-manager@^8.8.0:
+  version "8.8.0"
+  resolved "https://registry.npmmirror.com/react-native-ble-manager/-/react-native-ble-manager-8.8.0.tgz#fc3d565e61f972aba68474ac68e1e605d6993f9e"
+  integrity sha512-8rB3IJuoV7yv3ymHKD/Y9JHpV9pJeLWw9UbmszvYPMDOzSlfsO+mE2xCd8J4vpfmDYKFlT6hsMGAkPV5aPzDag==
+
 react-native-codegen@^0.71.5:
   version "0.71.5"
   resolved "https://registry.npmmirror.com/react-native-codegen/-/react-native-codegen-0.71.5.tgz#454a42a891cd4ca5fc436440d301044dc1349c14"
