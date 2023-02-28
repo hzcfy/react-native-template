@@ -5,7 +5,7 @@ import { View, Text, TouchableOpacity, Animated, Easing } from 'react-native'
 import { Component } from '@cforyoung/react-native-navigation'
 import { Page } from 'components'
 import CircleProgress from './circl_progress'
-
+import Lottie from 'lottie-react-native'
 const Test = (props) => {
   // 开始倒计时
   const startCountdown = () => {
@@ -48,6 +48,7 @@ const Test = (props) => {
         <View style={{ borderColor: '#e5e5e5', borderWidth: 1, height: 30, width: 100 }} />
         <View style={{ borderColor: '#e5e5e5', borderWidth: 1, height: 10, width: 10, marginLeft: 5 }} />
       </View>
+      <Lottie style={{width: 100, height: 200}} source={require('../assets/lottie/car-loading2-data.json')} autoPlay loop />
     </Page>
   )
 }
