@@ -5,29 +5,51 @@ import Scan from './scan'
 import SectionsWheelPicker from './test/sectionsWheelPickerDemo'
 import { CardStyleInterpolators } from 'react-navigation-stack'
 
-export default {
-  Home: {
-    screen: HomeScreen
-    // navigationOptions: {
-    //   cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS
-    // }
+// export default {
+//   Home: {
+//     screen: HomeScreen
+//     // navigationOptions: {
+//     //   cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS
+//     // }
+//   },
+//   Test: {
+//     screen: Test
+//     // navigationOptions: {
+//     //   cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS
+//     // }
+//   },
+//   Scan: {
+//     screen: Scan
+//     // navigationOptions: {
+//     //   cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS
+//     // }
+//   },
+//   SectionsWheelPickerDemo: {
+//     screen: SectionsWheelPicker
+//     // navigationOptions: {
+//     //   cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS
+//     // }
+//   }
+// }
+
+export default [
+  {
+    name: 'Home',
+    component: HomeScreen
   },
-  Test: {
-    screen: Test
-    // navigationOptions: {
-    //   cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS
-    // }
+  {
+    name: 'Test',
+    component: Test,
+    options: {
+      // headerShown: false
+    }
   },
-  Scan: {
-    screen: Scan
-    // navigationOptions: {
-    //   cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS
-    // }
+  {
+    name: 'SectionsWheelPickerDemo',
+    component: SectionsWheelPicker
   },
-  SectionsWheelPickerDemo: {
-    screen: SectionsWheelPicker
-    // navigationOptions: {
-    //   cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS
-    // }
+  {
+    name: 'Scan',
+    component: Scan
   }
-}
+]

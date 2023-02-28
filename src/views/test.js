@@ -2,7 +2,7 @@
 import React, {useState} from 'react'
 import { View, Text, TouchableOpacity, Animated, Easing } from 'react-native'
 import { AnimatedCircularProgress } from 'react-native-circular-progress'
-import { Component } from '@cforyoung/react-native-navigation'
+// import { Component } from '@cforyoung/react-native-navigation'
 import { Page } from 'components'
 import CircleProgress from './circl_progress'
 import Lottie from 'lottie-react-native'
@@ -21,6 +21,7 @@ const Test = (props) => {
   }
   const durationTime = 5 // 持续时间（单位：s）
   const [progress, setProgress] = useState(new Animated.Value(0)) // 倒计时动画进度
+  console.log('Test-props', props)
   return (
     <Page title='士腾科技'>
       <View style={{ }} >

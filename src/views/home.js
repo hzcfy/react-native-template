@@ -3,14 +3,14 @@
 * @Description:
 * @Date: 2023-02-27 09:17:05
  * @Last Modified by: foryoung.cheng
- * @Last Modified time: 2023-02-28 11:06:53
+ * @Last Modified time: 2023-02-28 14:29:03
 * @License: GNU General Public License（GPL)
 * @Copyright: ©2003-2023 www.systech.com.cn 士腾 All Rights Reserved.
 */
-import React from 'react'
+import React, {Component} from 'react'
 import { View, TouchableOpacity } from 'react-native'
 import { Text, Colors, NumberInput, Toast, DateTimePicker, WheelPicker, SectionsWheelPicker, Stepper, SegmentedControl, ActionBar } from 'react-native-ui-lib'
-import { Component } from '@cforyoung/react-native-navigation'
+// import { Component } from '@cforyoung/react-native-navigation'
 import { Svg } from 'assets'
 import { Page } from 'components'
 import _ from 'lodash'
@@ -21,27 +21,29 @@ const MINUTES = _.times(60, i => i)
 export default class Entry extends Component {
   state={}
   _onPress =() => {
-    console.log('this', this)
+    console.log('this1', this.props.navigation)
     this.setState({isVisible: true})
   }
   _jump =() => {
     console.log('this', this)
-    this.navigator().push('SectionsWheelPickerDemo', {name: '111'})
+    this.props.navigation.navigate('SectionsWheelPickerDemo', {name: 'Secti1onsWheelPickerDemo'})
+    // this.navigator().push('SectionsWheelPickerDemo', {name: '111'})
   }
   _jump1 =() => {
     console.log('this', this)
-    this.navigator().push('Test', {name: '111'})
+    this.props.navigation.navigate('Test', {name: '1121'})
+    // this.navigator().push('Test', {name: '111'})
   }
    _jump2 =() => {
      console.log('this', this)
-     this.navigator().push('Test', {name: '111'})
+     this.props.navigation.navigate('Scan', {name: '1121'})
    }
   _onDismiss =() => {
     this.setState({isVisible: false})
   }
   render () {
     return (
-      <Page title='士腾科技'>
+      <View style={{flex: 1}} title='士腾科技'>
         <Toast
           message='士腾科技'
           visible={this.state.isVisible}
@@ -98,7 +100,7 @@ export default class Entry extends Component {
           />
 
         </View>
-      </Page>
+      </View>
 
     )
   }
