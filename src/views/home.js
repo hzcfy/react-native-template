@@ -3,7 +3,7 @@
 * @Description:
 * @Date: 2023-02-27 09:17:05
  * @Last Modified by: foryoung.cheng
- * @Last Modified time: 2023-02-27 16:29:40
+ * @Last Modified time: 2023-02-28 11:06:53
 * @License: GNU General Public License（GPL)
 * @Copyright: ©2003-2023 www.systech.com.cn 士腾 All Rights Reserved.
 */
@@ -32,6 +32,10 @@ export default class Entry extends Component {
     console.log('this', this)
     this.navigator().push('Test', {name: '111'})
   }
+   _jump2 =() => {
+     console.log('this', this)
+     this.navigator().push('Test', {name: '111'})
+   }
   _onDismiss =() => {
     this.setState({isVisible: false})
   }
@@ -56,6 +60,12 @@ export default class Entry extends Component {
             onPress={this._jump1}
           >
             <Text style={{fontSize: 22, color: '#FF69B4'}}>Jump1</Text>
+
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={this._jump2}
+          >
+            <Text style={{fontSize: 22, color: '#FF69B4'}}>SCAN</Text>
 
           </TouchableOpacity>
           <TouchableOpacity

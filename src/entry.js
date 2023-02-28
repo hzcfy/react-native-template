@@ -7,16 +7,17 @@
 
 import React, {Component} from 'react'
 import { View, Text } from 'react-native'
-import { SystechNavigation, NavigatorTypes } from '@cforyoung/react-native-navigation'
+import { SystechNavigation, NavigatorTypes, showPage } from '@cforyoung/react-native-navigation'
 import routes from './views/routes'
 import './global_config'
 export default class Entry extends Component {
   _onLoadingComplete = () => {
     console.log('onLoadingComplete')
+    showPage('Home')
   }
   render () {
     return (
-       <SystechNavigation
+      <SystechNavigation
         persistLoading={<View />}
         onLoadingComplete={this._onLoadingComplete}
         routeConfigMap={routes}

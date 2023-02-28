@@ -1,7 +1,7 @@
 
 import React, {useState} from 'react'
 import { View, Text, TouchableOpacity, Animated, Easing } from 'react-native'
-
+import { AnimatedCircularProgress } from 'react-native-circular-progress'
 import { Component } from '@cforyoung/react-native-navigation'
 import { Page } from 'components'
 import CircleProgress from './circl_progress'
@@ -41,14 +41,23 @@ const Test = (props) => {
           <Text>stop</Text>
         </TouchableOpacity>
       </View>
-
       <CircleProgress durationTime={1225} progress={progress} />
-
       <View style={{flexDirection: 'row', alignItems: 'center'}}>
         <View style={{ borderColor: '#e5e5e5', borderWidth: 1, height: 30, width: 100 }} />
         <View style={{ borderColor: '#e5e5e5', borderWidth: 1, height: 10, width: 10, marginLeft: 5 }} />
       </View>
-      <Lottie style={{width: 100, height: 200}} source={require('../assets/lottie/car-loading2-data.json')} autoPlay loop />
+      <Lottie style={{ width: 100, height: 200 }} source={require('../assets/lottie/car-loading2-data.json')} autoPlay loop />
+      <AnimatedCircularProgress
+        size={120}
+        width={15}
+        fill={0}
+        duration={800}
+        rotation={-150}
+        arcSweepAngle={300}
+        dashedTint={{width: 2.4, gap: 2.5}}
+        tintColor='#00e0ff'
+        onAnimationComplete={() => console.log('onAnimationComplete')}
+        backgroundColor='#3d5875' />
     </Page>
   )
 }

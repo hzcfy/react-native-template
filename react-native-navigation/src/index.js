@@ -3,9 +3,9 @@
 * @Description:
 * @Date: 2023-02-21 14:55:40
  * @Last Modified by: foryoung.cheng
- * @Last Modified time: 2023-02-27 09:17:52
+ * @Last Modified time: 2023-02-28 11:20:52
 * @License: GNU General Public License（GPL)
-* @Copyright: ©2003-2023 www.systech.com.cn 士腾 All Rights Reserved.  
+* @Copyright: ©2003-2023 www.systech.com.cn 士腾 All Rights Reserved.
 */
 import SystechNavigation from './entry'
 import { Component, PureComponent } from './lib'
@@ -24,6 +24,8 @@ import connect from './redux/connect'
  */
 const showPage = (routeName, params, action) => {
   const { store } = NavgationStore.getNavigationStore()
+  console.log('store', store, StackActions, NavigationActions)
+  // return
   if (store) {
     const navigateAction = StackActions.reset({
       index: 0,
@@ -46,7 +48,8 @@ const showPage = (routeName, params, action) => {
         })
       ]
     })
-    store.dispatch(navigateAction)
+    console.log('navigateAction', navigateAction)
+    // store.dispatch(navigateAction)
   }
 }
 

@@ -7641,6 +7641,13 @@ react-native-ble-manager@^8.8.0:
   resolved "https://registry.npmmirror.com/react-native-ble-manager/-/react-native-ble-manager-8.8.0.tgz#fc3d565e61f972aba68474ac68e1e605d6993f9e"
   integrity sha512-8rB3IJuoV7yv3ymHKD/Y9JHpV9pJeLWw9UbmszvYPMDOzSlfsO+mE2xCd8J4vpfmDYKFlT6hsMGAkPV5aPzDag==
 
+react-native-circular-progress@^1.3.8:
+  version "1.3.8"
+  resolved "https://registry.npmmirror.com/react-native-circular-progress/-/react-native-circular-progress-1.3.8.tgz#84713b42286e4778aaaeecd7910953bb9de018ce"
+  integrity sha512-XcGO6MzOLvGCEQqPlqsbxzv0R8JEF1W7enyKaZMIihCbrneH+BSPmec/9emlroNUNqRg9LrbNtZMy9843ixMCg==
+  dependencies:
+    prop-types "^15.8.1"
+
 react-native-codegen@^0.71.5:
   version "0.71.5"
   resolved "https://registry.npmmirror.com/react-native-codegen/-/react-native-codegen-0.71.5.tgz#454a42a891cd4ca5fc436440d301044dc1349c14"
